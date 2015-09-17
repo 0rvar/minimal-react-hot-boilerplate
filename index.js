@@ -2,18 +2,18 @@
 // Plays well with heroku
 require('dotenv').load({silent: true});
 
-var PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 // Write all further server-side javascript in ES6, use babel for compiling
 require('babel-core/register');
 
-var app = require('./src/server').createServer();
+const app = require('./src/server').createServer();
 
 if(process.env.NODE_ENV !== 'production') {
   // Development - serve and run webpack hot reloading
-  var webpack = require('webpack');
-  var config = require('./webpack.development.config');
-  var compiler = webpack(config);
+  const webpack = require('webpack');
+  const config = require('./webpack.development.config');
+  const compiler = webpack(config);
 
   app.use(require('webpack-dev-middleware')(compiler, {
       noInfo: true,
@@ -27,7 +27,7 @@ if(process.env.NODE_ENV !== 'production') {
 }
 
 // Spin up the server
-app.listen(PORT, 'localhost', function(err) {
+app.listen(PORT, 'localhost', (err) => {
   if(err) {
     console.log(err);
     return;
