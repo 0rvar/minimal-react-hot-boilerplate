@@ -1,0 +1,8 @@
+.thing {
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  font-size: 24px;
+}
+.thing:hover {
+  background: #eee;
+}
